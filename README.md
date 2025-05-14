@@ -1,10 +1,10 @@
-# ClearCut - AI Background Remover
+# ClearCut - Background Remover
 
-Welcome to **ClearCut**! This project allows you to instantly remove image backgrounds using AI, featuring:
+Welcome to **ClearCut**!
+A simple and fast project that allows you to remove image backgrounds easily, featuring:
 
-* **Next.js** frontend
-* **FastAPI** backend
-* **MODNet** deep learning model for portrait background removal
+- **Next.js** frontend (`client/`)
+- **FastAPI** backend (`backend/`)
 
 ---
 
@@ -12,14 +12,14 @@ Welcome to **ClearCut**! This project allows you to instantly remove image backg
 
 ```
 root/
-├── frontend/   # Next.js app
-├── backend/    # FastAPI app (Dockerized)
+├── client/     # Next.js app (frontend)
+├── backend/    # FastAPI app (backend API only)
 └── README.md
 ```
 
 ---
 
-## 📦 Backend Setup (FastAPI + MODNet)
+## 📦 Backend Setup (FastAPI API)
 
 ### 1. Clone the repo
 
@@ -28,7 +28,7 @@ git clone https://github.com/your-username/clearcut.git
 cd clearcut/backend
 ```
 
-### 2. Install Requirements (Locally)
+### 2. Install Python Requirements (Locally)
 
 ```bash
 pip install -r requirements.txt
@@ -39,13 +39,13 @@ pip install -r requirements.txt
 ### 3. Build Docker Image
 
 ```bash
-docker build -t clearcut-rembg .
+docker build -t clearcut-backend .
 ```
 
 ### 4. Run Docker Container
 
 ```bash
-docker run -p 8000:8000 clearcut-rembg
+docker run -p 8000:8000 clearcut-backend
 ```
 
 Backend will be available at:
@@ -58,10 +58,10 @@ http://localhost:8000
 
 ## 🌍 Frontend Setup (Next.js)
 
-### 1. Navigate to frontend
+### 1. Navigate to client
 
 ```bash
-cd clearcut/frontend
+cd clearcut/client
 ```
 
 ### 2. Install Node.js dependencies
@@ -86,11 +86,11 @@ http://localhost:3000
 
 ---
 
-## 🖋️ Notes
+## 🔋 Notes
 
-* Upload images from the frontend, they will be sent to the FastAPI server for background removal.
-* Make sure you have the MODNet `.ckpt` model weights in the `/backend` folder.
-* If running inside Docker, remember to set the proper `PYTHONPATH`.
+- Upload images from the frontend, they will be sent to the FastAPI server for background removal.
+- This project focuses on simplicity, speed, and self-hosted control.
+- No external AI model is used — only a lightweight backend API.
 
 ---
 
@@ -109,12 +109,11 @@ http://localhost:3000
 ```bash
 # From root
 cd backend
-# Run backend in Docker
-docker build -t clearcut-rembg .
-docker run -p 8000:8000 clearcut-rembg
+docker build -t clearcut-backend .
+docker run -p 8000:8000 clearcut-backend
 
 # In another terminal
-cd frontend
+cd client
 npm install
 npm run dev
 ```
@@ -126,9 +125,9 @@ Access backend: [http://localhost:8000](http://localhost:8000)
 
 ## 🌟 Credits
 
-* Frontend: **Next.js + TailwindCSS**
-* Backend: **FastAPI + Torch**
-* AI Model: **MODNet**
+- Frontend: **Next.js + TailwindCSS**
+- Backend: **FastAPI**
+- Built for simplicity and instant use.
 
 ---
 
@@ -138,4 +137,5 @@ This project is licensed under the **MIT License**.
 
 ---
 
-Enjoy removing backgrounds lightning fast! 🌟
+Enjoy ClearCut! 🚀
+Lightning fast, self-hosted, and easy to use. 🔥

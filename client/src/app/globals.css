@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* Base theme */
+:root {
+  /* Brand Colors */
+  --brand-primary: #00f58a; /* ⚡ Electric Green */
+  --brand-text-primary: black; /* ⚡ Electric Green */
+  --brand-secondary: #00c77e; /* Hover */
+  --brand-accent: #fbbf24;
+
+  /* Background & Text */
+  --background: #ffffff;
+  --foreground: #171717;
+  --brand-bg: #f9fafb;
+  --brand-text: #1e293b;
+
+  /* Components Backgrounds */
+  --navbar-bg: var(--brand-primary);
+  --footer-bg: var(--brand-secondary);
+  --card-bg: #ffffff;
+  --section-bg: #f9fafb;
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --brand-bg: #111827;
+    --brand-text: #e5e7eb;
+    --card-bg: #1f2937;
+    --section-bg: #111827;
+    --navbar-bg: var(--brand-secondary);
+    --footer-bg: var(--brand-primary);
+  }
+}
+
+/* Base styles */
+body {
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: "Inter", "Geist", "Geist Mono", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links */
+a {
+  color: var(--brand-text-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layouts */
+main {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  background: var(--brand-primary);
+  color: var(--brand-text-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover {
+  background: var(--brand-secondary);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--navbar-bg);
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px #0001;
+}
+
+/* Footer */
+.footer {
+  background: var(--footer-bg);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Cards */
+.card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #0001;
+  padding: 2rem;
+}
+
+/* Sections */
+.section {
+  background: var(--section-bg);
+  padding: 4rem 1rem;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
